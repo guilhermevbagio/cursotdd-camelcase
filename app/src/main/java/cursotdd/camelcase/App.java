@@ -32,25 +32,6 @@ public class App {
         return out;
     }
 
-    public boolean isUpperCaseOrNumber(char c) {
-        if(isSpecialChar(c)) throw new SpecialCharException("String must not contain special chars");
-        return c >= 'A' && c <= 'Z' || isNumber(c);
-    }
-
-    public boolean isNumber(char c){
-        if(isSpecialChar(c)) throw new SpecialCharException("String must not contain special chars");
-        return  c >= 48 && c <= 57;
-    }
-
-    public boolean isSpecialChar(char c){
-        return String.valueOf(c).matches("[^a-zA-Z0-9]");
-    }
-
-    public String handleCase(String s) {
-        if(s.length() <= 1) return s;
-        return isUpperCaseOrNumber(s.charAt(1)) ? s.toUpperCase() : s.toLowerCase();
-    }
-
     public List<String> joinUpperCase(List<String> strings) {
         List<String> out = new ArrayList<>();
         for (int i = 0; i < strings.size(); i++) {
@@ -74,5 +55,26 @@ public class App {
                       .reduce((s1, s2) -> s1 + s2)
                       .orElse("");
     }
+
+    
+    public boolean isUpperCaseOrNumber(char c) {
+        if(isSpecialChar(c)) throw new SpecialCharException("String must not contain special chars");
+        return c >= 'A' && c <= 'Z' || isNumber(c);
+    }
+
+    public boolean isNumber(char c){
+        if(isSpecialChar(c)) throw new SpecialCharException("String must not contain special chars");
+        return  c >= 48 && c <= 57;
+    }
+
+    public boolean isSpecialChar(char c){
+        return String.valueOf(c).matches("[^a-zA-Z0-9]");
+    }
+
+    public String handleCase(String s) {
+        if(s.length() <= 1) return s;
+        return isUpperCaseOrNumber(s.charAt(1)) ? s.toUpperCase() : s.toLowerCase();
+    }
+
     
 }

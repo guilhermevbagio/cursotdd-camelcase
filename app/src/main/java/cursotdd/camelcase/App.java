@@ -33,13 +33,13 @@ public class App {
     }
 
     public boolean isUpperCaseOrNumber(char c) {
-        if(isSpecialChar(c)) throw new SpecialCharException("ops");
+        if(isSpecialChar(c)) throw new SpecialCharException("String must not contain special chars");
         return c >= 'A' && c <= 'Z' || isNumber(c);
     }
 
     public boolean isNumber(char c){
-        if(isSpecialChar(c)) throw new SpecialCharException("ops");
-        return  c > 48 && c < 57;
+        if(isSpecialChar(c)) throw new SpecialCharException("String must not contain special chars");
+        return  c >= 48 && c <= 57;
     }
 
     public boolean isSpecialChar(char c){
